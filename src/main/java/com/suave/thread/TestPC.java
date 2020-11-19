@@ -3,6 +3,8 @@ package com.suave.thread;
 import lombok.SneakyThrows;
 
 /**
+ * 测试生产者消费者问题
+ * wait方法和notify方法
  * @author Suave
  * @date 2020/11/19 15:35
  */
