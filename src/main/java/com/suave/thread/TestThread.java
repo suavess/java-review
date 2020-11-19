@@ -14,18 +14,8 @@ public class TestThread implements Runnable {
 
     private Integer ticket = 10;
 
-    /**
-     * When an object implementing interface <code>Runnable</code> is used
-     * to create a thread, starting the thread causes the object's
-     * <code>run</code> method to be called in that separately executing
-     * thread.
-     * <p>
-     * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
-     *
-     * @see Thread#run()
-     */
     @SneakyThrows
+    @Override
     public void run() {
         while (ticket > 0) {
             System.out.printf("%s抢到了第%d张票%n", Thread.currentThread().getName(), ticket--);
