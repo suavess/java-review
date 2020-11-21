@@ -1,9 +1,6 @@
 package com.suave.reflection;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * @author Suave
@@ -13,6 +10,7 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class User {
     private String name;
     private int id;
