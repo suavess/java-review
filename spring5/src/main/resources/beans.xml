@@ -52,7 +52,13 @@
     <bean id="user1" class="com.suave.spring5.demo03.User"/>
     <bean id="user2" class="com.suave.spring5.demo03.User"/>
 
+    <!--
+        byName 自动查找id一样的bean 需要保证名称一致
+        byType 自动查找class一样的bean 需要保证类只有一个bean
+     -->
     <bean id="cat" class="com.suave.spring5.demo04.Cat"/>
     <bean id="dog" class="com.suave.spring5.demo04.Dog"/>
-    <bean id="people" class="com.suave.spring5.demo04.People"/>
+    <bean id="people" class="com.suave.spring5.demo04.People" autowire="byType">
+        <property name="name" value="Suave"/>
+    </bean>
 </beans>
