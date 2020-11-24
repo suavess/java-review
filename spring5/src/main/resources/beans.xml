@@ -48,4 +48,6 @@
             </props>
         </property>
     </bean>
+
+    <bean id="user" class="com.suave.spring5.demo03.User" scope="prototype"/>
 </beans>
