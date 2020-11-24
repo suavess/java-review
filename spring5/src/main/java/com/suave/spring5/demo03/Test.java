@@ -12,8 +12,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
-        User user1 = context.getBean("user", User.class);
-        User user2 = context.getBean("user", User.class);
+        User user1 = context.getBean("user1", User.class);
+        User user2 = context.getBean("user2", User.class);
         System.out.println(user1.hashCode());
         System.out.println(user2.hashCode());
         System.out.println(user1 == user2);

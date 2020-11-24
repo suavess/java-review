@@ -49,5 +49,10 @@
         </property>
     </bean>
 
-    <bean id="user" class="com.suave.spring5.demo03.User" scope="prototype"/>
+    <bean id="user1" class="com.suave.spring5.demo03.User"/>
+    <bean id="user2" class="com.suave.spring5.demo03.User"/>
+
+    <bean id="cat" class="com.suave.spring5.demo04.Cat"/>
+    <bean id="dog" class="com.suave.spring5.demo04.Dog"/>
+    <bean id="people" class="com.suave.spring5.demo04.People"/>
 </beans>
