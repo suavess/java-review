@@ -4,4 +4,48 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="userService" class="com.suave.spring5.demo01.service.UserServiceImpl"/>
     <bean id="userDao" class="com.suave.spring5.demo01.dao.OracleUserDao"/>
+
+    <bean id="address" class="com.suave.spring5.demo02.Address"/>
+    <bean id="student" class="com.suave.spring5.demo02.Student">
+        <property name="name" value="Suave"/>
+        <property name="address" ref="address"/>
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>水浒传</value>
+                <value>三国演义</value>
+            </array>
+        </property>
+        <property name="hobbies">
+            <list>
+                <value>跑步</value>
+                <value>听歌</value>
+                <value>打游戏</value>
+                <value>看电影</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="银行卡" value="12234354561324354"/>
+                <entry key="身份证" value="330382199902286510"/>
+            </map>
+        </property>
+        <property name="games">
+            <set>
+                <value>王者荣耀</value>
+                <value>英雄联盟</value>
+                <value>和平精英</value>
+            </set>
+        </property>
+        <property name="wife">
+            <null/>
+        </property>
+        <property name="info">
+            <props>
+                <prop key="学号">2018</prop>
+                <prop key="班级">9732</prop>
+            </props>
+        </property>
+    </bean>
 </beans>
