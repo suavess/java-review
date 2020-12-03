@@ -1,64 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="userService" class="com.suave.spring5.demo01.service.UserServiceImpl"/>
-    <bean id="userDao" class="com.suave.spring5.demo01.dao.OracleUserDao"/>
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--    <bean id="userService" class="com.suave.spring5.demo01.service.UserServiceImpl"/>-->
+    <!--    <bean id="userDao" class="com.suave.spring5.demo01.dao.OracleUserDao"/>-->
 
-    <bean id="address" class="com.suave.spring5.demo02.Address"/>
-    <bean id="student" class="com.suave.spring5.demo02.Student">
-        <property name="name" value="Suave"/>
-        <property name="address" ref="address"/>
-        <property name="books">
-            <array>
-                <value>红楼梦</value>
-                <value>西游记</value>
-                <value>水浒传</value>
-                <value>三国演义</value>
-            </array>
-        </property>
-        <property name="hobbies">
-            <list>
-                <value>跑步</value>
-                <value>听歌</value>
-                <value>打游戏</value>
-                <value>看电影</value>
-            </list>
-        </property>
-        <property name="card">
-            <map>
-                <entry key="银行卡" value="12234354561324354"/>
-                <entry key="身份证" value="330382199902286510"/>
-            </map>
-        </property>
-        <property name="games">
-            <set>
-                <value>王者荣耀</value>
-                <value>英雄联盟</value>
-                <value>和平精英</value>
-            </set>
-        </property>
-        <property name="wife">
-            <null/>
-        </property>
-        <property name="info">
-            <props>
-                <prop key="学号">2018</prop>
-                <prop key="班级">9732</prop>
-            </props>
-        </property>
-    </bean>
+    <!--    <bean id="address" class="com.suave.spring5.demo02.Address"/>-->
+    <!--    <bean id="student" class="com.suave.spring5.demo02.Student">-->
+    <!--        <property name="name" value="Suave"/>-->
+    <!--        <property name="address" ref="address"/>-->
+    <!--        <property name="books">-->
+    <!--            <array>-->
+    <!--                <value>红楼梦</value>-->
+    <!--                <value>西游记</value>-->
+    <!--                <value>水浒传</value>-->
+    <!--                <value>三国演义</value>-->
+    <!--            </array>-->
+    <!--        </property>-->
+    <!--        <property name="hobbies">-->
+    <!--            <list>-->
+    <!--                <value>跑步</value>-->
+    <!--                <value>听歌</value>-->
+    <!--                <value>打游戏</value>-->
+    <!--                <value>看电影</value>-->
+    <!--            </list>-->
+    <!--        </property>-->
+    <!--        <property name="card">-->
+    <!--            <map>-->
+    <!--                <entry key="银行卡" value="12234354561324354"/>-->
+    <!--                <entry key="身份证" value="330382199902286510"/>-->
+    <!--            </map>-->
+    <!--        </property>-->
+    <!--        <property name="games">-->
+    <!--            <set>-->
+    <!--                <value>王者荣耀</value>-->
+    <!--                <value>英雄联盟</value>-->
+    <!--                <value>和平精英</value>-->
+    <!--            </set>-->
+    <!--        </property>-->
+    <!--        <property name="wife">-->
+    <!--            <null/>-->
+    <!--        </property>-->
+    <!--        <property name="info">-->
+    <!--            <props>-->
+    <!--                <prop key="学号">2018</prop>-->
+    <!--                <prop key="班级">9732</prop>-->
+    <!--            </props>-->
+    <!--        </property>-->
+    <!--    </bean>-->
 
-    <bean id="user1" class="com.suave.spring5.demo03.User"/>
-    <bean id="user2" class="com.suave.spring5.demo03.User"/>
+    <!--    <bean id="user1" class="com.suave.spring5.demo03.User"/>-->
+    <!--    <bean id="user2" class="com.suave.spring5.demo03.User"/>-->
 
-    <!--
-        byName 自动查找id一样的bean 需要保证名称一致
-        byType 自动查找class一样的bean 需要保证类只有一个bean
-     -->
-    <bean id="cat" class="com.suave.spring5.demo04.Cat"/>
-    <bean id="dog" class="com.suave.spring5.demo04.Dog"/>
-    <bean id="people" class="com.suave.spring5.demo04.People" autowire="byType">
-        <property name="name" value="Suave"/>
-    </bean>
+    <!--    &lt;!&ndash;-->
+    <!--        byName 自动查找id一样的bean 需要保证名称一致-->
+    <!--        byType 自动查找class一样的bean 需要保证类只有一个bean-->
+    <!--     &ndash;&gt;-->
+    <!--    <bean id="cat" class="com.suave.spring5.demo04.Cat"/>-->
+    <!--    <bean id="dog" class="com.suave.spring5.demo04.Dog"/>-->
+    <!--    <bean id="people" class="com.suave.spring5.demo04.People" autowire="byType">-->
+    <!--        <property name="name" value="Suave"/>-->
+    <!--    </bean>-->
+
+    <bean id="userService" class="com.suave.spring5.demo06.service.impl.UserServiceImpl"/>
+    <bean id="beforeLog" class="com.suave.spring5.demo06.log.BeforeLog"/>
+    <bean id="afterLog" class="com.suave.spring5.demo06.log.AfterLog"/>
+
+    <aop:config>
+        <!--    切入点,execution() 要执行的位置    -->
+        <aop:pointcut id="pointCut"
+                      expression="execution(* com.suave.spring5.demo06.service.impl.UserServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="beforeLog" pointcut-ref="pointCut"/>
+        <aop:advisor advice-ref="afterLog" pointcut-ref="pointCut"/>
+    </aop:config>
+
 </beans>
